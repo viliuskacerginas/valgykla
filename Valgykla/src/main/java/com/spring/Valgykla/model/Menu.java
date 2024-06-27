@@ -16,9 +16,9 @@ public class Menu {
     @Column(name = "nationality")
     private String nationality;
     @Column(name = "vegan")
-    private boolean vegan;
+    private String vegan;
     @Column(name = "stock")
-    private boolean stock;
+    private int stock;
     @Column(name = "genre")
     private String genre;
     @Column(name = "reserved")
@@ -26,7 +26,7 @@ public class Menu {
     @Column(name = "reservation_id")
     private int reservationId;
 
-    public Menu(String name, int calories, String nationality, boolean vegan, boolean stock, String genre, boolean reserved, int reservationId) {
+    public Menu(String name, int calories, String nationality, String vegan, int stock, String genre, boolean reserved, int reservationId) {
         this.name = name;
         this.calories = calories;
         this.nationality = nationality;
@@ -36,7 +36,7 @@ public class Menu {
         this.reserved = reserved;
         this.reservationId = reservationId;
     }
-    public Menu(int id, String name, int calories, String nationality, boolean vegan, boolean stock, String genre, boolean reserved, int reservationId) {
+    public Menu(int id, String name, int calories, String nationality, String vegan, int stock, String genre, boolean reserved, int reservationId) {
         this.id = id;
         this.name = name;
         this.calories = calories;
@@ -80,19 +80,19 @@ public class Menu {
         this.nationality = nationality;
     }
 
-    public boolean isVegan() {
+    public String getVegan() {
         return vegan;
     }
 
-    public void setVegan(boolean vegan) {
+    public void setVegan(String vegan) {
         this.vegan = vegan;
     }
 
-    public boolean isStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(boolean stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
