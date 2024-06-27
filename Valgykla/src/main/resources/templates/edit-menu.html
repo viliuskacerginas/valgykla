@@ -9,10 +9,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <style>
-        .gradient-custom {
-            background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-        }
-    </style>
+	.gradient-custom {
+	background: url('https://i.pinimg.com/originals/0f/fe/a9/0ffea9f292790ae4f36637ff5f7d72ab.jpg') no-repeat center center fixed;
+	background-size: cover;
+	}
+	body {
+	color: white;
+	background-color: black:
+	}
+	.card {
+	background-color: rgba(0,0,0,0.8);
+	}
+	.table-container {
+		overflow-x: auto;
+		}
+	.table.table-dark {
+		background-color: rgba(0,0,0,0.8);
+	}
+	.table.table-dark th, .table.table-dark td {
+	color: white;
+	}
+	.table.table-dark tbody tr:nth-of-type(odd) {
+		background-color: rgba(255,255,255,0.1);
+	}
+	a {
+		color: white;
+	}
+	</style>
 </head>
 <body>
 <div th:insert="header :: header"></div>
