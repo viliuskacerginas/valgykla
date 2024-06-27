@@ -1,7 +1,7 @@
 package com.spring.Valgykla.config;
 
 import com.spring.Valgykla.repository.UserRepository;
-//import com.spring.Valgykla.service.UserDetailsServiceImpl;
+import com.spring.Valgykla.service.UserDetailsServiceImpl;
 import com.spring.Valgykla.service.UserService;
 import com.spring.Valgykla.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,11 @@ public class SpringConfig {
     public SpringConfig(UserRepository userRepository) {
     }
 
-//    @Bean
-//    @Qualifier("UserDetailsService")
-//    public UserDetailsService getuserDetailsService() {
-//        return new UserDetailsServiceImpl();
-//    }
+    @Bean
+    @Qualifier("UserDetailsService")
+    public UserDetailsService getuserDetailsService() {
+        return new UserDetailsServiceImpl();
+    }
 
     @Bean
     @Qualifier("UserService")

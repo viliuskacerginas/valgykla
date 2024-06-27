@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRole("Customer"); //Sets user role to "Reader" by default
+        user.setRole("Customer"); //Sets user role to "Customer" by default
         userRepository.save(user);
     }
     @Override
