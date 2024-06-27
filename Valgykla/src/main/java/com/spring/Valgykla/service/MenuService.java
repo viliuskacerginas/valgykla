@@ -10,7 +10,9 @@ public interface MenuService {
     List<Menu> getAll();
     void deleteById(int id);
     Optional<Menu> findById(int id);
-    List<Menu> findBooksByTitle(String query);
+    List<Menu> findMealsByTitle(String query);
     List<Menu> findMealsByReservationId(int id);
     List<Menu> findByIdIn(List<Integer> ids);
+
+    List<Menu> findMenuByReservationId(int userId);
 }

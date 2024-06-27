@@ -19,32 +19,34 @@ public class Menu {
     private boolean vegan;
     @Column(name = "stock")
     private boolean stock;
-
+    @Column(name = "genre")
+    private String genre;
     @Column(name = "reserved")
     private boolean reserved;
     @Column(name = "reservation_id")
     private int reservationId;
 
-    public Menu(String name, int calories, String nationality, boolean vegan, boolean stock, boolean reserved, int reservationId) {
+    public Menu(String name, int calories, String nationality, boolean vegan, boolean stock, String genre, boolean reserved, int reservationId) {
         this.name = name;
         this.calories = calories;
         this.nationality = nationality;
         this.vegan = vegan;
         this.stock = stock;
+        this.genre = genre;
         this.reserved = reserved;
         this.reservationId = reservationId;
     }
-    public Menu(int id,String name, int calories, String nationality, boolean vegan, boolean stock, boolean reserved, int reservationId) {
+    public Menu(int id, String name, int calories, String nationality, boolean vegan, boolean stock, String genre, boolean reserved, int reservationId) {
         this.id = id;
         this.name = name;
         this.calories = calories;
         this.nationality = nationality;
         this.vegan = vegan;
         this.stock = stock;
+        this.genre = genre;
         this.reserved = reserved;
         this.reservationId = reservationId;
     }
-
 
     public int getId() {
         return id;
@@ -94,6 +96,14 @@ public class Menu {
         this.stock = stock;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public boolean isReserved() {
         return reserved;
     }
@@ -119,6 +129,7 @@ public class Menu {
                 ", nationality='" + nationality + '\'' +
                 ", vegan=" + vegan +
                 ", stock=" + stock +
+                ", genre='" + genre + '\'' +
                 ", reserved=" + reserved +
                 ", reservationId=" + reservationId +
                 '}';

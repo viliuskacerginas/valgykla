@@ -32,7 +32,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<Menu> findBooksByTitle(String query) {
+    public List<Menu> findMealsByTitle(String query) {
         return menuRepository.findByNameContainingIgnoreCase(query);
     }
 
@@ -44,5 +44,10 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public List<Menu> findByIdIn(List<Integer> ids) {
         return menuRepository.findByIdIn(ids);
+    }
+
+    @Override
+    public List<Menu> findMenuByReservationId(int userId) {
+        return null;
     }
 }
