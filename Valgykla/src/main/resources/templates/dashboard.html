@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <menu>Dashboard</menu>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <style>
@@ -34,44 +34,44 @@
                             <h2 class="fw-bold mb-5 text-uppercase">Dashboard</h2>
                             <form th:action="@{/dashboard/search}" method="get" class="mb-4">
                                 <div class="input-group">
-                                    <input type="text" name="query" class="form-control" placeholder="Search for books ...">
+                                    <input type="text" name="query" class="form-control" placeholder="Search for menu items ...">
                                     <button class="btn btn-primary" type="submit">Search</button>
                                 </div>
                             </form>
                             <table class="table table-dark table-striped">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Genre</th>
-                                    <th scope="col">Pages</th>
-                                    <th scope="col">ISBN</th>
-                                    <th scope="col">Blurb</th>
-                                    <th scope="col">Picture</th>
+                                    <th scope="col">Calories</th>
+                                    <th scope="col">Nationality</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Vegan</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Options</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="book : ${bookList}">
-                                    <td th:text="${book.title}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${book.title}"></td>
-                                    <td th:text="${book.genre}"></td>
-                                    <td th:text="${book.pageCount}"></td>
-                                    <td th:text="${book.ISBN}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${book.ISBN}"></td>
-                                    <td th:text="${book.blurb}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${book.blurb}"></td>
-                                    <td th:text="${book.picture}"></td>
-                                    <td th:text="${book.reserved ? 'Reserved' : 'Available'}"
-                                        th:classappend="${book.reserved ? 'reserved' : 'available'}"
-                                        th:style="${book.reserved ? 'color: red;' : 'color: green;'}">
+                                <tr th:each="menu : ${menuList}">
+                                    <td th:text="${menu.name}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="menu=${menu.name}"></td>
+                                    <td th:text="${menu.genre}"></td>
+                                    <td th:text="${menu.calories}"></td>
+                                    <td th:text="${menu.nationality}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="menu=${menu.nationality}"></td>
+                                    <td th:text="${menu.stock}" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="menu=${menu.stock}"></td>
+                                    <td th:text="${menu.vegan}"></td>
+                                    <td th:text="${menu.reserved ? 'Reserved' : 'Available'}"
+                                        th:classappend="${menu.reserved ? 'reserved' : 'available'}"
+                                        th:style="${menu.reserved ? 'color: red;' : 'color: green;'}">
                                     </td>
                                     <td>
                                         <span sec:authorize="hasAuthority('ADMIN')">
-                                            <a th:href="@{/book/edit/{id}(id=${book.id})}" style="text-decoration: none; cursor: pointer;">Edit</a> |
-                                            <span style="color: red; cursor: pointer;" th:attr="onclick='confirmDelete(\'' + ${book.id} + '\')'">Delete</span> |
+                                            <a th:href="@{/menu/edit/{id}(id=${menu.id})}" style="text-decoration: none; cursor: pointer;">Edit</a> |
+                                            <span style="color: red; cursor: pointer;" th:attr="onclick='confirmDelete(\'' + ${menu.id} + '\')'">Delete</span> |
                                         </span>
-                                        <a th:href="@{/book/reserve/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: gray;">Reserve</a> |
-                                        <a th:href="@{/book/favorite/{bookId}/{userId}(bookId=${book.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: purple;">Like</a>
+                                        <a th:href="@{/menu/reserve/{menuId}/{userId}(menuId=${menu.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: gray;">Reserve</a> |
+                                        <a th:href="@{/menu/favorite/{menuId}/{userId}(menuId=${menu.id}, userId=${#authentication.principal.id})}" style="text-decoration: none; cursor: pointer; color: purple;">Like</a>
                                     </td>
-                                    </tr>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -83,8 +83,8 @@
 </section>
 <script>
     function confirmDelete(id) {
-        if (confirm("Are you sure you want to delete this book?")) {
-            window.location.href = "/book/delete/" + id;
+        if (confirm("Are you sure you want to delete this menu?")) {
+            window.location.href = "/menu/delete/" + id;
         }
     }
     document.addEventListener('DOMContentLoaded', function () {

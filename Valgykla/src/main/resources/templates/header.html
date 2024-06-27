@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/genre">Manage Genres</a>
                 </li>
                 <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link" href="/create">Add Book</a>
+                    <a class="nav-link" href="/create">Add Menu Item</a>
                 </li>
                 <li class="nav-item">
                     <span class="nav-link text-white">Logged in as: <span th:text="${#authentication.name}"></span> (<span th:text="${#authentication.principal.authorities[0].authority}"></span>)</span>
