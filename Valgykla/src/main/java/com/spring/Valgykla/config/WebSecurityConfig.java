@@ -54,8 +54,8 @@ public class WebSecurityConfig {
                 .requestMatchers("/delete").hasAuthority("ADMIN")
                 .requestMatchers("/genre").hasAuthority("ADMIN")
                 .requestMatchers("/create").hasAuthority("ADMIN")
-                .requestMatchers("/book/edit/**").hasAuthority("ADMIN")
-                .requestMatchers("/book/delete/**").hasAuthority("ADMIN")
+                .requestMatchers("/menu/edit/**").hasAuthority("ADMIN")
+                .requestMatchers("/menu/delete/**").hasAuthority("ADMIN")
         );
         http.authorizeHttpRequests(
                         auth -> auth.requestMatchers("/register").permitAll()
